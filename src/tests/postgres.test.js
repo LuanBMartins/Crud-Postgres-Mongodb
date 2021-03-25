@@ -1,8 +1,8 @@
-const ConstextStrategy = require('./../db/strategies/base/contextStrategy')
+const Context = require('./../db/strategies/base/contextStrategy')
 const Postgres = require('./../db/strategies/postgres')
 const assert = require('assert')
 
-const context = new ConstextStrategy(new Postgres())
+const context = new Context(new Postgres())
 const CARD_DEFAULT = {
     id: 1,
     name: "Dark Magician",
@@ -59,8 +59,3 @@ describe('Postgres strategy', function() {
     })
 })
 
-describe('MongoDb strategy', function(){
-    it('', function(){
-        
-    })
-})

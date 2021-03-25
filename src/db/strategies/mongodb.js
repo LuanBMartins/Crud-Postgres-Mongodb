@@ -17,6 +17,15 @@ class mongodb extends Icrud{
     createCard(item){
         return this._card.create(item)
     }
+    readCard(data){
+        return this._card.findOne(data)
+    }
+    updateCard(id, item){
+        return this._card.updateOne({_id: id}, {$set: item})
+    }
+    deleteCard(id){
+        return this._card.deleteOne({_id: id})
+    }
     async isConnected(){
         const state = STATUS[this._driver.readyState]
         if (state !== 'Conectando') return state

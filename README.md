@@ -8,7 +8,7 @@ após realizar o git clone utilize:
 # Trabalhando com docker #
 Containers para utilização do banco de dados postgres.
 
-docker pull postgres
+<!-- docker pull postgres
 docker run \
     --name postgres \
     -e POSTGRES_USER=user \
@@ -23,6 +23,7 @@ docker run -p 80:80 \
     -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' \
     -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
     --link postgres:postgres \
-    -d dpage/pgadmin4
+    -d dpage/pgadmin4 -->
 
-
+## Readme in construction ##
+...
