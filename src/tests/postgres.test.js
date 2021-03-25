@@ -2,7 +2,7 @@ const ConstextStrategy = require('./../db/strategies/base/contextStrategy')
 const Postgres = require('./../db/strategies/postgres')
 const assert = require('assert')
 
-const postgres = new ConstextStrategy(new Postgres())
+const context = new ConstextStrategy(new Postgres())
 const CARD_DEFAULT = {
     id: 1,
     name: "Dark Magician",
@@ -22,21 +22,21 @@ const CARD_UPDATE_DEFAULT = {
 
 describe('Postgres strategy', function() {
     this.beforeAll(async function(){
-        await postgres.createCard(CARD_UPDATE_DEFAULT)
+        await context.createCard(CARD_UPDATE_DEFAULT)
     })
     this.afterAll(async function(){
-        await postgres.deleteCard()
+        await context.deleteCard()
     })
     it('Postgres connection', async function(){
-        const result = await postgres.isConnected()
+        const result = await context.isConnected()
         assert.strictEqual(result, true)
     })
     it('create', async function(){
-        const result = await postgres.createCard(CARD_DEFAULT)
+        const result = await context.createCard(CARD_DEFAULT)
         assert.deepStrictEqual(result, CARD_DEFAULT)
     })
     it('read', async function(){
-        const [result] = await postgres.readCard(CARD_DEFAULT.id)
+        const [result] = await context.readCard(CARD_DEFAULT.id)
         assert.deepStrictEqual(result, CARD_DEFAULT)
     })
     it('update', async function(){
@@ -48,13 +48,13 @@ describe('Postgres strategy', function() {
             atk: 2000,
             def: 1700
         }
-        const [result] = await postgres.updateCard(CARD_UPDATE_DEFAULT.id, CARD_UPDATE)
-        const [resultTwo] = await postgres.readCard(CARD_UPDATE.id)
+        const [result] = await context.updateCard(CARD_UPDATE_DEFAULT.id, CARD_UPDATE)
+        const [resultTwo] = await context.readCard(CARD_UPDATE.id)
         assert.deepStrictEqual(result, 1)
         assert.deepStrictEqual(resultTwo, CARD_UPDATE)
     })
     it('delete', async function(){
-        const result = await postgres.deleteCard(CARD_DEFAULT.id)
+        const result = await context.deleteCard(CARD_DEFAULT.id)
         assert.deepStrictEqual(result, 1)
     })
 })

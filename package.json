@@ -4,17 +4,27 @@
   "description": "A example of CRUD in the Postgres.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/tests/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mongoose": "^5.12.2",
+    "package.json": "^2.0.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.5.0"
   },
   "devDependencies": {
     "mocha": "^8.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuanBMartins/Crud-Postgres-Mongodb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LuanBMartins/Crud-Postgres-Mongodb/issues"
+  },
+  "homepage": "https://github.com/LuanBMartins/Crud-Postgres-Mongodb#readme"
 }

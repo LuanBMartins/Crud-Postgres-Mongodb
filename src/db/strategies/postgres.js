@@ -26,8 +26,8 @@ class postgres extends Icrud {
     async connect(){
         this._driver = new Sequelize(
             'yugioh v.1',
-            'user', 
-            'SuperSecret', {
+            'luanbm', 
+            '123443210', {
                 host: 'localhost',
                 dialect: 'postgres'
             }

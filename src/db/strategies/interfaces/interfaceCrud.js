@@ -1,3 +1,4 @@
+
 class notImplementedException extends Error {
     constructor() {
         super('Not implemented Exception')
@@ -18,6 +19,12 @@ class Icrud {
         throw new notImplementedException()
     }
     isConnected() {
+        throw new notImplementedException()
+    }
+    connect() {
+        throw new notImplementedException()
+    }
+    defineModels() {
         throw new notImplementedException()
     }
 }
