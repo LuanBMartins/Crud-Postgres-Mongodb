@@ -1,8 +1,9 @@
 const Context = require('./../db/strategies/base/contextStrategy')
-const Mongodb = require('./../db/strategies/mongodb')
+const Mongodb = require('./../db/strategies/mongodb/mongodb')
+const schemaCard = require('./../db/strategies/mongodb/schemas/cardSchema')
 const assert = require('assert')
 
-const context = new Context(new Mongodb())
+let context = {}
 const CARD_DEFAULT = {
     name: "Dark Magician",
     type: "Spellcaster",
@@ -22,6 +23,8 @@ let MOCK_ID = ''
 
 describe('Mongodb strategy', function(){
     this.beforeAll( async function() {
+        const connection = await Mongodb.connect()
+        context = new Context(new Mongodb(connection, schemaCard))
         await context.createCard(CARD_UPDATE_DEFAULT)
     })
     this.afterAll(async function(){
@@ -54,7 +57,6 @@ describe('Mongodb strategy', function(){
     it('update', async ()=> {
         const {_id} = await context.readCard({name: CARD_UPDATE_DEFAULT.name})
         MOCK_ID = _id
-        console.log('id', MOCK_ID);
         const result = await context.updateCard(MOCK_ID, {
             name: "Dark Magician Girl",
             type: "Speelcaster",

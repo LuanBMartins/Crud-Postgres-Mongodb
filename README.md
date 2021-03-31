@@ -2,11 +2,11 @@
 
 # Iniciando o Projeto #
 após realizar o git clone utilize:
-    npm init -y
+    npm i
 
 
-# Trabalhando com docker #
-Containers para utilização do banco de dados postgres.
+<!-- # Trabalhando com docker #
+Containers para utilização do banco de dados postgres. -->
 
 <!-- docker pull postgres
 docker run \
