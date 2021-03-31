@@ -1,5 +1,5 @@
 const Icrud = require("./../interfaces/interfaceCrud");
-const Mongoose = require('mongoose').set('debug', false);
+const Mongoose = require('mongoose');
 const STATUS = {
     0: 'disconectado',
     1: 'Conectado',

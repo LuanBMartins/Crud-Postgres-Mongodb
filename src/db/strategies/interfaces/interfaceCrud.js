@@ -21,7 +21,7 @@ class Icrud {
     isConnected() {
         throw new notImplementedException()
     }
-    connect() {
+    static connect() {
         throw new notImplementedException()
     }
     defineModels() {

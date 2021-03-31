@@ -1,8 +1,9 @@
 const Context = require('./../db/strategies/base/contextStrategy')
-const Postgres = require('./../db/strategies/postgres')
+const Postgres = require('./../db/strategies/postgres/postgres')
+const cardSchema = require('./../db/strategies/postgres/schemas/cardSchema')
 const assert = require('assert')
 
-const context = new Context(new Postgres())
+let context = {}
 const CARD_DEFAULT = {
     id: 1,
     name: "Dark Magician",
@@ -22,6 +23,10 @@ const CARD_UPDATE_DEFAULT = {
 
 describe('Postgres strategy', function() {
     this.beforeAll(async function(){
+        const connection = await Postgres.connect()
+        const model = await Postgres.defineModel(connection, cardSchema)
+
+        context = new Context(new Postgres(connection, model))
         await context.createCard(CARD_UPDATE_DEFAULT)
     })
     this.afterAll(async function(){
